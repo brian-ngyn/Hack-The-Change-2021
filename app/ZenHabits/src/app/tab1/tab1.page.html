@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Zen Habits
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,25 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Zen Habits</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <div>
+    <ion-card *ngFor = "let habit of habits"> 
+      <ion-card-header>
+        <ion-card-subtitle>{{habit.subtitle}}</ion-card-subtitle>
+        <ion-card-title>{{habit.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-checkbox [(ngModel)]="habit.isChecked"></ion-checkbox>
+      
+      <ion-card-content>
+        {{habit.content}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
 </ion-content>

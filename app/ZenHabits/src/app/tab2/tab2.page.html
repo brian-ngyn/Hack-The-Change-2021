@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,30 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">ZenHabits</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Welcome back!</ion-card-title>
+      <ion-card-subtitle>Today is {{date}}<br>You've logged in x times in a row!</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tip of the day</ion-card-title>
+      <ion-card-subtitle>Come back tomorrow for another tip!</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>Remember to drink water!</ion-card-content>
+  </ion-card>
+
+  <ion-card button=True href="resources" routerAnimation={{this.animationCtrl}}>
+    <ion-card-header>
+      <ion-card-title>Resources</ion-card-title>
+      <ion-card-subtitle>Click to view resources</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>
