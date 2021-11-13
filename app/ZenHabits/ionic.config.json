@@ -1,0 +1,7 @@
+{
+  "name": "ZenHabits",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
