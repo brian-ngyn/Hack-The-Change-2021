@@ -54,7 +54,7 @@ export class AuthPage implements OnInit {
             this.isLoading = false;
             loadingEl.dismiss();
             console.log('Logged in!');
-            console.log(this.firestore.getTips());
+            this.firestore.getTips();
             this.firestore.getHabits().subscribe(() => {
               this.router.navigateByUrl('/tabs/tab2');
             });
