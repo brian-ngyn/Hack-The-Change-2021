@@ -15,7 +15,6 @@ export class Tab2Page {
 
   constructor(private router : Router, private firestore: FirebaseService) {
     this.date = new Date().toDateString()
-    console.log(this.firestore.tipsList);
     this.randomNumber = Math.floor(Math.random() * (this.firestore.tipsList.length) + 1);
     this.tipToHTML = this.firestore.tipsList[this.randomNumber].tips;
   }

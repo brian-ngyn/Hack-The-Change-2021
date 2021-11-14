@@ -33,7 +33,7 @@ export class RegisterPage implements OnInit {
      }
   ngOnInit() {
   }
-  onSubmit(){
+  onSubmit(form){
       if (!this.form.valid) //Cannot proceed if the form is invalid.
       {
         return;

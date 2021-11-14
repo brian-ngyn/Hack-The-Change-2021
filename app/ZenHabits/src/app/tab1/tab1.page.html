@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content padding [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title color = "tertiary" size="large">ZenHabits</ion-title>
@@ -15,27 +15,27 @@
 
   <ion-label>
     <ion-list>
-      <ion-list-header>Incomplete Tasks</ion-list-header>
-    </ion-list>
-    <ion-card button = "True" color = "secondary" *ngFor="let incomplete of incompletes; index as i" (click)=toCompleteTask()>
+      <ion-list-header>Incomplete Tasks: {{this.incompletes.length}}</ion-list-header>
+      <ion-card button = "True" color = "secondary" *ngFor="let incomplete of incompletes; index as i" (click)="toCompleteTask(incomplete, i)">
         <ion-card-header>
           <ion-card-subtitle>{{this.incompletes[i].subtitle}}</ion-card-subtitle>
           <ion-card-title>{{this.incompletes[i].title}}</ion-card-title>
         </ion-card-header>
-        <ion-card-content>{{this.incompletes[i].content}}</ion-card-content>
-    </ion-card>
+      <ion-card-content>{{this.incompletes[i].content}}</ion-card-content>
+      </ion-card>
+    </ion-list>
   </ion-label>
 
   <ion-label>
     <ion-list>
-      <ion-list-header>Completed Tasks</ion-list-header>
-    </ion-list>
-    <ion-card button = "True" color = "success" *ngFor="let complete of completes; index as j" (click)=toIncompleteTask()>
+      <ion-list-header>Completed Tasks: {{this.completes.length}}</ion-list-header>
+      <ion-card button = "True" color = "success" *ngFor="let complete of completes; index as j" (click)="toIncompleteTask(complete, j)">
         <ion-card-header>
           <ion-card-subtitle>{{this.completes[j].subtitle}}</ion-card-subtitle>
           <ion-card-title>{{this.completes[j].title}}</ion-card-title>
         </ion-card-header>
-        <ion-card-content>{{this.completes[j].content}}</ion-card-content> 
-    </ion-card>
+      <ion-card-content>{{this.completes[j].content}}</ion-card-content> 
+      </ion-card>
+    </ion-list>
   </ion-label>
 </ion-content>

@@ -13,9 +13,9 @@ export class FirebaseService {
   taskStatusDocument: AngularFirestoreDocument<any>;
   tipOfTheDayCollection: AngularFirestoreCollection<any>;
   userID: string;
-  public habitList: {complete: {content: string, subtitle: string, title: string}[], incomplete: {content: string, subtitle: string, title: string}[]} = {
-    complete: [],
-    incomplete: []
+  public habitList: {completes: {content: any, subtitle: any, title: any}[], incompletes: {content: any, subtitle: any, title: any}[]} = {
+    completes: [],
+    incompletes: []
   }
   public tipsList=[];
   taskList: any;
@@ -32,7 +32,7 @@ export class FirebaseService {
           data.forEach(habit => {
             var status;
             status = x[habit.title];
-            let arr = status ? this.habitList.complete : this.habitList.incomplete;
+            let arr = status ? this.habitList.completes : this.habitList.incompletes;
             arr.push(habit);
           });
         }));
@@ -41,8 +41,8 @@ export class FirebaseService {
   }
 
   getTips() {
-    this.firestore.collection("Tip of the Day").snapshotChanges().subscribe((data) => {
-      this.tipsList = data.map(e => {
+    this.firestore.collection("Tip of the Day").snapshotChanges().subscribe((data2) => {
+      this.tipsList = data2.map(e => {
         return { tips: e.payload.doc.data()["tip"]}
       })
     })

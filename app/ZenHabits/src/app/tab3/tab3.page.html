@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      ZenHabits
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,30 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large" color="tertiary">ZenHabits</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>About Us!</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Mental health is easy to overlook in today's non-stop society.  
+      A survey taken from the US showed that 11% of adults reported symptoms of anxiety or depression from January - June of 2019 (pre COVID), 
+      the survey was taken again and showed that 42% of adults reported symptoms of anxiety or depression during December of 2020.  
+      This is where ZenHabits can help.  ZenHabits is a mobile web app that sends push notifications to the user that reminds them throughout 
+      the day to take time to engage in activities that help with their mental health.  Some of the activities are: going for a walk, yoga, deep 
+      breathing exercises, and more.  Although ZenHabits does help with mental health, it is important to mention that it is not a replacement for 
+      treatment of severe cases, which should continue to be treated by a professional in that area.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card button>
+    <ion-card-header button=True (click)="navigateAuthPage()">
+      <ion-card-title>Sign Out</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>

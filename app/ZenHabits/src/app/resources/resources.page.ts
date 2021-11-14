@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resources',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcesPage implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
+  navigateHomePage() {
+    this.router.navigateByUrl('/tabs/tab2')
+  }
 }
