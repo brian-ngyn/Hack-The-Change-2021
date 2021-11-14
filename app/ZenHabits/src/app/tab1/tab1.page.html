@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Zen Habits
+      ZenHabits
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,25 +9,33 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Zen Habits</ion-title>
+      <ion-title color = "tertiary" size="large">ZenHabits</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-
-  <div>
-    <ion-card *ngFor = "let habit of habits"> 
-      <ion-card-header>
-        <ion-card-subtitle>{{habit.subtitle}}</ion-card-subtitle>
-        <ion-card-title>{{habit.title}}</ion-card-title>
-      </ion-card-header>
-
-      <ion-checkbox [(ngModel)]="habit.isChecked"></ion-checkbox>
-      
-      <ion-card-content>
-        {{habit.content}}
-      </ion-card-content>
+  <ion-label>
+    <ion-list>
+      <ion-list-header>Incomplete Tasks</ion-list-header>
+    </ion-list>
+    <ion-card button = "True" color = "secondary" *ngFor="let incomplete of incompletes; index as i" (click)=toCompleteTask()>
+        <ion-card-header>
+          <ion-card-subtitle>{{this.incompletes[i].subtitle}}</ion-card-subtitle>
+          <ion-card-title>{{this.incompletes[i].title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{this.incompletes[i].content}}</ion-card-content>
     </ion-card>
-  </div>
-  
+  </ion-label>
+
+  <ion-label>
+    <ion-list>
+      <ion-list-header>Completed Tasks</ion-list-header>
+    </ion-list>
+    <ion-card button = "True" color = "success" *ngFor="let complete of completes; index as j" (click)=toIncompleteTask()>
+        <ion-card-header>
+          <ion-card-subtitle>{{this.completes[j].subtitle}}</ion-card-subtitle>
+          <ion-card-title>{{this.completes[j].title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{this.completes[j].content}}</ion-card-content> 
+    </ion-card>
+  </ion-label>
 </ion-content>

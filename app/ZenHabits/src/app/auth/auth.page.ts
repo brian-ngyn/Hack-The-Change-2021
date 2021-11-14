@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { FirebaseService } from '../Services/firebase.service';
 import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AuthPage implements OnInit {
   isLoading = false; //set to false as a default.
   isLogin = true; //set to true as a default.
   //Parameters injected to trigger the necessary methods.
-  constructor(private authService: AuthService, private router : Router, private loadingCtrl: LoadingController, public formbuilder: FormBuilder, private alertCtrl: AlertController) {  
+  constructor(private firestore: FirebaseService, private authService: AuthService, private router : Router, private loadingCtrl: LoadingController, public formbuilder: FormBuilder, private alertCtrl: AlertController) {  
     this.formgroup = this.formbuilder.group(
       {
         email: new FormControl('', Validators.compose([Validators.required, Validators.email])), 
@@ -53,7 +54,10 @@ export class AuthPage implements OnInit {
             this.isLoading = false;
             loadingEl.dismiss();
             console.log('Logged in!');
-            this.router.navigateByUrl('/tabs/tab2');
+            this.firestore.getTips()
+            this.firestore.getHabits().subscribe(() => {
+              this.router.navigateByUrl('/tabs/tab2');
+            });
           },
           //In case of errors while logging in, custom error messages are displayed.
           errRes => {
