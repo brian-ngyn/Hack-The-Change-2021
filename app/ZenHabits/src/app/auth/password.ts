@@ -51,7 +51,6 @@ export class PasswordMatch {
         let password = group.controls.password.value;
         let confirmpassword = group.controls.confirmpassword.value;;
          if (password != confirmpassword) {
-             console.log('here');
              return{
                  mismatch: "Passwords do not match"
              }

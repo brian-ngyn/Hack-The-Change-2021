@@ -46,7 +46,7 @@ export class RegisterPage implements OnInit {
   onSignUp(email: string, password: string, confirmpassword: string)
   {
     this.isLoading = true;
-    this.loadingCtrl.create({keyboardClose:true, message:'Creating account...'})
+    this.loadingCtrl.create({keyboardClose:true, message:'Taking you back to the login screen...'})
     .then(loadingEl=>{
       loadingEl.present();
       this.authService.signup(email, password, confirmpassword).subscribe(
@@ -54,8 +54,7 @@ export class RegisterPage implements OnInit {
           console.log(resData);
           this.isLoading = false;
           loadingEl.dismiss();
-          console.log('Signed in!!')
-          this.router.navigateByUrl('/tabs/tab2');
+          this.router.navigateByUrl('');
         },
         //In case of errors while signing up, custom error messages are displayed.
         errRes => {

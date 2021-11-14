@@ -6,7 +6,7 @@ import { User } from './user.model';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController } from '@ionic/angular';
-// import { IonicStorageService } from '../Services/ionic-storage.service';
+//import { IonicStorageService } from '../Services/ionic-storage.service';
 
 export interface AuthResponseData {
   kind: string;
@@ -66,7 +66,6 @@ export class AuthService {
 
   private setUserData(userData: AuthResponseData) {
     //Date object that marks the expiration of the token.
-    console.log(userData);
     const expirationTime = new Date(
       new Date().getTime() + +userData.expiresIn * 1000 //Conversion to seconds.
     );
@@ -84,7 +83,7 @@ export class AuthService {
   }
 
   private storeAuthData(localId: string, idToken: string, email: string, tokenExpirationDate: string) {
-    // this.storageService.set('authData', { localId: localId, idToken: idToken, email: email, tokenExpirationDate: tokenExpirationDate });
+    //this.storageService.set('authData', { localId: localId, idToken: idToken, email: email, tokenExpirationDate: tokenExpirationDate });
   }
 
   async presentNoBackendSetupError() {
